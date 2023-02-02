@@ -1,0 +1,22 @@
+init_config:
+    service: tcp_check
+
+instances:
+  - name: www check
+    host: www.google.com
+    port: 80
+    collect_response_time: true
+    tags:
+      - 'site:SITE'
+  - name: ssl check
+    host: www.google.com
+    port: 443
+    collect_response_time: true
+    tags:
+      - 'site:SITE'
+#  - name: Upload check
+#    host: UPLOAD_FTP_PROD
+#    port: 2222
+#    collect_response_time: true
+#    tags:
+#      - 'site:SITE'

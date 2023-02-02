@@ -1,0 +1,8 @@
+init_config:
+    service: speedtest
+instances:
+  -
+    tags:
+      - 'site:SITE'
+    min_collection_interval: 300
+    interface: eth0

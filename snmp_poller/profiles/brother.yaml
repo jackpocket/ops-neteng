@@ -1,0 +1,63 @@
+sysobjectid:
+  - 1.3.6.1.4.1.2435.*  #brother specific
+
+extends:
+    - _base.yaml
+    - _generic-if.yaml
+    - _generic-ip.yaml
+    - _generic-tcp.yaml
+    - _generic-udp.yaml
+      #- _generic-router-if.yaml
+      #- _generic-router-ip.yaml
+      #- _generic-host-resources.yaml
+
+metrics:
+  - MIB: BROTHER-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2435.2.4.3.1240.1.14
+      name:  brpsFlashROMSize
+    metric_tags:
+      - tag: Romsize
+
+  - MIB: IF-MIB
+    symbol:
+      OID:  1.3.6.1.2.1.2.2.1.10
+      name: ifInOctets
+    metric_tags:
+      - tag: octets_in
+
+        #- MIB: BROTHER-MIB
+        #symbol:
+        #OID: 1.3.6.1.4.1.2435.2.4.3.1240.1.1
+        #name:  brpsNodeName
+        #extract_value: '(*)'
+        #metric_tags:
+        #- tag: nodename
+
+  - MIB: BROTHER-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2435.2.3.9.1.1.2.9
+      name: brJamPlace
+    metric_tags:
+      - tag: jam_location
+
+  - MIB: BROTHER-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.4
+      name:  brInfoStatus
+    metric_tags:
+      - tag: brother_info_status
+
+  - MIB: BROTHER-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.6.1
+      name: brStatusSleep
+    metric_tags:
+      - tag: brother_sleep_status
+
+  - MIB: BROTHER-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.52.1.1.3
+      name: brPrintPages
+    metric_tags:
+      - tag: brother_print_pages

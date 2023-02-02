@@ -1,0 +1,47 @@
+init_config:
+  loader: core
+  user_device_id_as_hostname: true
+instances:
+  - ip_address: 'FIREWALL_IP'
+    min_collection_interval: 5
+    profile: 'sophos-xg'
+    snmp_version: 3
+    user: 'SNMP_USER'
+    authProtocol: 'SHA256'
+    authKey: 'AUTH_KEY'
+    privProtocol: 'AES'
+    privKey: 'PRIV_KEY'
+    tags:
+      - 'site:SITE'
+      - 'vendor:sophos'
+      - 'function:firewall'
+
+#  - network_address: 'PRINTER_VLAN'
+#    min_collection_interval: 5
+#    profile: 'brother'
+#    snmp_version: 2
+#    community_string: 'COMMUNITY_STRING'
+#    tags:
+#      - 'site:SITE'
+#      - 'vendor:brother'
+#      - 'function:printer'
+
+  - network_address: 'NETWORK_MANAGEMENT_SUBNET'
+    min_collection_interval: 5
+    profile: 'zyxel'
+    snmp_version: 2
+    community_string: 'COMMUNITY_STRING'
+    tags:
+      - 'site:SITE'
+      - 'vendor:zyxel'
+      - 'function:switch'
+
+  - ip_address: 'UPS_IP'
+    min_collection_interval: 5
+    profile: 'eaton'
+    snmp_version: 2
+    community_string: 'COMMUNITY_STRING'
+    tags:
+      - 'site:SITE'
+      - 'vendor:eaton'
+      - 'function:ups'

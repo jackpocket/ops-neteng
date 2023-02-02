@@ -1,0 +1,242 @@
+sysobjectid:
+  - 1.3.6.1.4.1.2604.5 # sophos-xg specific
+
+extends:
+  - _base.yaml
+    #- generic-router.yaml
+    #- _generic-router-if.yaml
+    #- generic-sophos.yaml
+  - _generic-if.yaml
+  - _generic-host-resources.yaml
+  - _generic-tcp.yaml
+
+#This does not seem to work at all
+
+#metadata:
+#  device:
+#    fields:
+#      name:
+#        symbol:
+#          OID: 1.3.6.1.4.1.2604.5.1.1.1
+#          name: sfosDeviceName
+#      description:
+#       symbol:
+#         OID: 1.3.6.1.2.1.1.1.0
+#         name: sysDescr
+#      sys_object_id:
+#        symbol:
+#        OID: 1.3.6.1.2.1.1.2.0
+#        name: sysObjectID
+#      location:
+#        symbol:
+#        OID: 1.3.6.1.2.1.1.6.0
+#        name: sysLocation
+
+metrics:
+#TODO Figure out why this does not work and adding a profile above does
+#  - MIB: HOST-RESOURCES-MIB
+#    table:
+#      OID: 1.3.6.1.2.1.25.2.3
+#      name: hrStorageTable
+#    symbol:
+#      OID: 1.3.6.1.2.1.25.2.3.1.6
+#      name: hrStorageUsed
+#    metric_tags:
+#      - tag: storage_used
+#        column:
+#          OID: 1.3.6.1.2.1.25.2.3.1.1
+#          name: hrStorageIndex
+  - MIB: SFOS-FIREWALL-MIB
+    table:
+      OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1
+      name: sfosIPSecVpnTunnelTable
+    symbol:
+      OID:  .1.3.6.1.4.1.2604.5.1.6.1.1.1.1.8
+      name:  sfosIPSecVpnActiveTunnel
+
+      # - MIB: HOST-RESOURCES-MIB
+      #symbol:
+      #OID: 1.3.6.1.2.1.25.3.2.1.3.196608
+      #name: hrDeviceDescr
+      #extract: '(*)'
+      #metric_tags:
+      #- tag: cpu_description
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.2.4.2
+      name: sfosDiskPercentUsage
+    metric_tags:
+      - tag: disk_usage_percent
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.2.4.1
+      name: sfosDiskCapacity
+    metric_tags:
+      - tag: disk_capacity
+
+#  - MIB: SFOS-FIREWALL-MIB
+#    symbol:
+#      OID: 1.3.6.1.4.1.2604.5.1.2.2
+#      name: sfosUpTime
+#    metric_tags:
+#      - tag: uptime
+# This error out...Needs a label?
+#  - MIB: SFOS-FIREWALL-MIB
+#    symbol:
+#      OID: 1.3.6.1.4.1.2604.5.1.1.1
+#      name: sfosDeviceName
+#    metric_tags:
+#      - tag:
+
+#  - MIB: DISMAN-EVENT-MIB
+#    symbol:
+#      OID: 1.3.6.1.2.1.1.3.0
+#      name: sysUpTimeInstance
+#      #extract_value: '(.*)' #Looking to extract the string value which woould looke like: 24h 34m 12s or so
+#    metric_tags:
+#      - tag: uptime
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.2.6
+      name: sfosLiveUsersCount
+    metric_tags:
+      - tag: liveusers
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.2.5.1
+      name: sfosMemoryCapacity
+    metric_tags:
+      - tag: memory
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.2.5.2
+      name:  sfosMemoryPercentUsage
+    metric_tags:
+      - tag: memory_used
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.2.5.3
+      name: sfosSwapCapacity
+    metric_tags:
+      - tag: swap
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.2.5.4
+      name:  sfosSwapPercentUsage
+    metric_tags:
+      - tag: swap_used
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.3.17
+      name: sfosNetworkService
+    metric_tags:
+      - tag: network_service_status
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.4.4
+      name: sfosDeviceCurrentHAState
+    metric_tags:
+      - tag: current_ha_state
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.4.5
+      name: sfosDevicePeerHAState
+    metric_tags:
+      - tag: HA_peer_state
+
+  - MIB: HOST-RESOURCES-MIB
+    symbol:
+      OID: 1.3.6.1.2.1.25.1.5
+      name:  hrSystemNumUsers
+    metric_tags:
+      - tag: system_users
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.2604.5.1.4.1
+      name: sfosHAStatus
+    metric_tags:
+      - tag: HA_status
+
+  - MIB: XG-FIREWALL-MIB
+    symbol:
+      OID: 1.3.6.1.4.1.21067.2.1.2.2.1
+      name: cpuPercentUsage
+    metric_tags:
+      - tag: sophos_cpu_usage
+
+#The number of times TCP connections have made a direct transition to the CLOSED state
+#from either the SYN-SENT state or the SYN-RCVD state, plus the number of times TCP connections
+#have made a direct transition to the LISTEN state from the SYN-RCVD state.
+
+  - MIB: RFC1213-MIB
+    symbol:
+      OID: 1.3.6.1.2.1.6.7
+      name: tcpAttemptFails
+    metric_tags:
+      - tag: attempt_fails
+
+#  - MIB: SFOS-FIREWALL-MIB
+#    symbol:
+#      OID: 1.3.6.1.4.1.2604.5.1.2.7
+#      name: sfosHTTPHits
+#    metric_tags:
+#      - tag: HTTP_hits
+
+#  - MIB: HOST-RESOURCES-MIB
+#    table:
+#      OID: 1.3.6.1.2.1.25.2.3
+#      name: hrStorageTable
+#    symbol:
+#      OID: 1.3.6.1.2.1.25.2.3.1.6
+#      name: hrStorageUsed
+#    metric_tags:
+#  - tag: storage_used
+#        column:
+#          OID: 1.3.6.1.2.1.25.2.3.1.1
+#          name: hrStorageIndex
+
+#TABLE - works given that the index is 1
+  - MIB: SFOS-FIREWALL-MIB
+    table:
+      OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1
+      name: sfosIPSecVpnTunnelTable
+    symbols:
+      # List of symbols ('columns') to retrieve.
+      # Same format as for a single OID.
+      # Each row in the table will emit these metrics.
+# None of the these will work as they are not scalars
+#      - OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.2
+#        name: sfosIPSecVpnConnName
+#      - OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.3
+#        name: sfosIPSecVpnConnDes
+#      - OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.4
+#        name: sfosIPSecVpnPolicyName
+#      - OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.5
+#        name: sfosIPSecVpnConnMode
+      - OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.6
+        name: sfosIPSecVpnConnType
+#      - OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.7
+#        name: sfosIPSecVpnLocalgwPort
+      - OID: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.8
+        name: sfosIPSecVpnActiveTunnel
+    metric_tags:
+      - tag: vpn_tunnel
+      - index: 1
+
+  - MIB: SFOS-FIREWALL-MIB
+    symbol:
+      OID:  1.3.6.1.4.1.2604.5.1.5.1.1
+      name: sfosBaseFWLicRegStatus
+    metric_tags:
+      - tag: sophos_base_lic_reg_status
