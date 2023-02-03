@@ -145,6 +145,7 @@ subprocess.run(f'sudo sed -i s/DD_API_KEY/{dd_api_key}/g /etc/datadog-agent/data
 subprocess.run(f'sudo sed -i s/DD_API_KEY/{dd_api_key}/g /etc/syslog-ng/conf.d/sophos.conf', shell=True)
 
 subprocess.run(f'sudo sed -i s/SUMO_DEPLOYMENT_REGION/{sumo_deployment_region}/g /etc/syslog-ng/conf.d/sumo.conf', shell=True)
+subprocess.run(f'sudo sed -i s/SITE/{site}/g /etc/syslog-ng/conf.d/sumo.conf', shell=True)
 
 subprocess.run(f'sudo sed -i s/FIREWALL_IP/{firewall_ip}/g /etc/datadog-agent/conf.d/snmp.d/conf.yaml', shell=True)
 subprocess.run(f'sudo sed -i s/AUTH_KEY/{auth_key}/g /etc/datadog-agent/conf.d/snmp.d/conf.yaml', shell=True)
