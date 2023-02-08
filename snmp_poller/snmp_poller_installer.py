@@ -198,7 +198,7 @@ os.system('sudo apt update -y')
 os.system('sudo apt upgrade -y')
 #os.system('sudo service nessusd restart')
 
-######
+##########
 #Install Openssl 3.0.7
 
 # #os.chdir('sudo rm -rf /etc/syslog-ng/ca.d/openssl*')
