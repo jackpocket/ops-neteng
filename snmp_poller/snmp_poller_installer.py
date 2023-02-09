@@ -196,6 +196,8 @@ os.system('sudo -u dd-agent speedtest')
 ######### Force upgrade
 os.system('sudo apt update -y')
 os.system('sudo apt upgrade -y')
+os.system('sudo apt autoremove -y')
+
 #os.system('sudo service nessusd restart')
 
 ######
