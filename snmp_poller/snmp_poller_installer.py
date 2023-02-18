@@ -221,8 +221,8 @@ os.system('sudo apt autoremove -y')
 #os.system('sudo apt-get install linux-image-5.17.0-1021 -y')
 #os.system('sudo apt-get install linux-image-6.0.0-1008 -y')
 #os.system('sudo apt-get install linux-image-6.0.0-1009 -y')
-os.system('sudo apt-get install linux-image-6.0.0-1011 -y')
-os.system('sudo reboot')
+#os.system('sudo apt-get install linux-image-6.0.0-1011 -y')
+#os.system('sudo reboot')
 
 
 
