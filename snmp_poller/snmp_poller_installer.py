@@ -221,8 +221,17 @@ os.system('sudo apt autoremove -y')
 #os.system('sudo apt-get install linux-image-6.0.0-1008 -y')
 #os.system('sudo apt-get install linux-image-6.0.0-1009 -y')
 #os.system('sudo apt-get install linux-image-6.0.0-1011 -y')
-os.system('sudo apt-get install linux-image-6.0.0-1012 -y')
-os.system('sudo reboot')
+#os.system('sudo apt-get install linux-image-6.0.0-1012 -y')
+#os.system('sudo reboot')
+
+
+####Manual upgrade for Nessus Agent
+#os.chdir('/tmp')
+#os.system('curl --request GET --url 'https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.5.0-ubuntu1404_amd64.deb' --output 'Nessus-10.5.0-ubuntu1404_amd64.deb'')
+#os.system('sudo apt install /tmp/Nessus-10.5.0-ubuntu1404_amd64.deb -y')
+#os.system('sudo systemctl restart nessusd.service')
+
+
 
 
 
