@@ -3,6 +3,6 @@ init_config:
 instances:
   -
     tags:
-      - 'site:BACKUP_SITE'
+      - 'backup_site:BACKUP_SITE'
     min_collection_interval: 604800
     interface: eth0
