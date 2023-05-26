@@ -2,7 +2,6 @@ import os
 import fileinput
 import subprocess
 
-#os.system('sudo apt remove -y datadog-agent')
 os.system('sudo systemctl stop datadog-agent')
 
 #TODO this does not work - using source is the only option
@@ -17,8 +16,6 @@ dd_weburl = os.getenv('DD_WEBURL')
 
 # Get JP environment variables
 site = os.getenv('BACKUP_SITE')
-# Update - slow
-# os.system('sudo apt update')
 
 # disable ipv6
 os.system('sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1')
@@ -28,11 +25,8 @@ os.system('sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1')
 # Install some packages
 try:
     os.system('sudo apt install -y ssh')
-    os.system('sudo apt install -y iputils-ping')
     os.system('sudo apt install -y curl')
-    os.system('sudo apt install -y snmp')
     os.system('sudo apt install -y net-tools')
-    #os.system('sudo apt install -y syslog-ng')
 
 except:
     exit("Failed to install the packages")
@@ -45,7 +39,6 @@ except:
 os.system('curl -s https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh | bash /dev/stdin')
 
 # Install relevant integrations
-#os.system('sudo -u dd-agent datadog-agent integration install -t datadog-ping==1.0.2 -r')
 os.system('sudo -u dd-agent datadog-agent integration install -t datadog-speedtest==1.0.0 -r')
 
 # Install speedtest utility
@@ -54,8 +47,7 @@ os.system('sudo tar -zxf ookla-speedtest-1.2.0-linux-x86_64.tgz')
 os.system('sudo cp speedtest* /usr/local/bin/')
 
 # Copy templated files
-os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/ping/conf.yaml /etc/datadog-agent/conf.d/ping.d/')
-os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/speedtest/conf.yaml /etc/datadog-agent/conf.d/speedtest.d/')
+os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/backup_speedtest/conf.yaml /etc/datadog-agent/conf.d/speedtest.d/')
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/tcp_check/conf.yaml /etc/datadog-agent/conf.d/tcp_check.d/')
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/snmp/conf.yaml /etc/datadog-agent/conf.d/snmp.d/')
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/agent/datadog.yaml /etc/datadog-agent/')
@@ -72,10 +64,8 @@ dd_tcp_check_conf = '/etc/datadog-agent/conf.d/tcp_check.d/conf.yaml'
 
 #WORKS - callcheck but we do run below
 #subprocess.check_output(f'sudo sed -i s/BACKUP_SITE/{site}/g /etc/datadog-agent/conf.d/ping.d/conf.yaml', shell=True)
-#subprocess.run(f'sudo sed -i s/BACKUP_SITE/{site}/g /etc/datadog-agent/conf.d/ping.d/conf.yaml', shell=True)
 
 subprocess.run(f'sudo sed -i s/BACKUP_SITE/{site}/g /etc/datadog-agent/conf.d/speedtest.d/conf.yaml', shell=True)
-subprocess.run(f'sudo sed -i s/BACKUP_SITE/{site}/g /etc/datadog-agent/conf.d/tcp_check.d/conf.yaml', shell=True)
 
 #subprocess.run(f'sudo sed -i s/BACKUP_SITE/{site}/g /etc/datadog-agent/conf.d/snmp.d/conf.yaml', shell=True)
 

@@ -1,0 +1,8 @@
+init_config:
+    service: speedtest
+instances:
+  -
+    tags:
+      - 'site:BACKUP_SITE'
+    min_collection_interval: 604800
+    interface: eth0
