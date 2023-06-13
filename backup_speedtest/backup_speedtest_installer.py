@@ -50,7 +50,7 @@ os.system('sudo cp speedtest* /usr/local/bin/')
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/backup_speedtest/conf.yaml /etc/datadog-agent/conf.d/speedtest.d/')
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/tcp_check/conf.yaml /etc/datadog-agent/conf.d/tcp_check.d/')
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/snmp/conf.yaml /etc/datadog-agent/conf.d/snmp.d/')
-os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/agent/datadog.yaml /etc/datadog-agent/')
+os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/agent/backup_speedtest/datadog.yaml /etc/datadog-agent/')
 
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/github_pull_backuptest.py /opt/')
 os.system('sudo chmod +x /opt/github_pull_backuptest.py')
