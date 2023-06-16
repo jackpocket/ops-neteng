@@ -85,3 +85,8 @@ os.system('sudo rm ookla*')
 # #Press YES to accept agreement and run the test at least once
 # #This must run in order for the check to succeed
 os.system('sudo -u dd-agent speedtest --accept-license')
+
+########## Force upgrade
+os.system('sudo apt update -y')
+os.system('sudo apt upgrade -y')
+os.system('sudo apt autoremove -y')
