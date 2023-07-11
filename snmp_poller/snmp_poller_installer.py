@@ -254,4 +254,4 @@ os.system('sudo mv /opt/okta/ragent/jre/linux /opt/okta/ragent/jre/linux.old')
 os.system('sudo mkdir /opt/okta/ragent/jre/linux')
 os.system('sudo cp -r /usr/lib/jvm/java-1.8.0-amazon-corretto/* /opt/okta/ragent/jre/linux')
 
-os.system('sudo service ragent stop')
+os.system('sudo service ragent start')
