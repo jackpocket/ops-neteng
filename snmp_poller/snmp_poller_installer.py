@@ -244,14 +244,14 @@ os.system('sudo apt autoremove -y')
 #os.system('sudo systemctl restart nessusd.service')
 ######Manual upgrade for Java Corretto VULN
 os.system('wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - ')
-os.system('sudo add-apt-repository "deb https://apt.corretto.aws stable main"')
+os.system('sudo add-apt-repository "deb https://apt.corretto.aws stable main -y"')
 
 os.system('sudo apt-get update')
 os.system('sudo apt-get install -y java-1.8.0-amazon-corretto-jdk')
 os.system('sudo service ragent stop')
 
-os.system('mv /opt/okta/ragent/jre/linux /opt/okta/ragent/jre/linux.old')
-os.system('mkdir /opt/okta/ragent/jre/linux')
-os.system('cp /usr/lib/jvm/java-1.8.0-amazon-corretto/* /opt/okta/ragent/jre/linux')
+os.system('sudo mv /opt/okta/ragent/jre/linux /opt/okta/ragent/jre/linux.old')
+os.system('sudo mkdir /opt/okta/ragent/jre/linux')
+os.system('sudo cp -r /usr/lib/jvm/java-1.8.0-amazon-corretto/* /opt/okta/ragent/jre/linux')
 
 os.system('sudo service ragent stop')
