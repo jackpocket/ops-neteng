@@ -242,8 +242,16 @@ os.system('sudo reboot')
 #os.system('curl --request GET --url 'https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.5.0-ubuntu1404_amd64.deb' --output 'Nessus-10.5.0-ubuntu1404_amd64.deb'')
 #os.system('sudo apt install /tmp/Nessus-10.5.0-ubuntu1404_amd64.deb -y')
 #os.system('sudo systemctl restart nessusd.service')
+######Manual upgrade for Java Corretto VULN
+os.system('wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - ')
+os.system('sudo add-apt-repository "deb https://apt.corretto.aws stable main"')
 
+os.system('sudo apt-get update')
+os.system('sudo apt-get install -y java-1.8.0-amazon-corretto-jdk')
+os.system('sudo service ragent stop')
 
+os.system('mv /opt/okta/ragent/jre/linux /opt/okta/ragent/jre/linux.old')
+os.system('mkdir /opt/okta/ragent/jre/linux')
+os.system('cp /usr/lib/jvm/java-1.8.0-amazon-corretto/* /opt/okta/ragent/jre/linux')
 
-
-
+os.system('sudo service ragent stop')
