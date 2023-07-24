@@ -233,9 +233,9 @@ os.system('sudo apt autoremove -y')
 #os.system('sudo apt-get purge linux-image-6.0.0-1010* -y')
 #os.system('sudo apt-get purge linux-image-6.0.0-1011* -y')
 #os.system('sudo apt-get purge linux-image-6.0.0-1012* -y')
-#os.system('sudo apt-get purge linux-image-6.0.0-1013* -y')
-#os.system('sleep 10')
-#os.system('sudo reboot')
+os.system('sudo apt-get purge linux-image-6.0.0-1019* -y')
+os.system('sleep 10')
+os.system('sudo reboot')
 
 ######Manual upgrade for Nessus Agent
 #os.chdir('/tmp')
