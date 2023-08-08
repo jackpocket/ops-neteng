@@ -51,6 +51,8 @@ try:
 except:
     exit("Failed to install the packages")
 
+os.system('sudo apt remove -y openssh-server openssh-client')
+
 # Certificates for Sumo logic
 os.system('sudo mkdir -p /etc/syslog-ng/ca.d')
 os.chdir('/etc/syslog-ng/ca.d')
@@ -202,8 +204,6 @@ os.system('sudo apt autoremove -y')
 
 ######
 #Install Openssl 3.0.9
-os.system('sudo rm -rf /usr/lib/x86_64-linux-gnu/libcrypto*')
-os.system('sudo rm -rf /usr/local/lib64/libcrypto*')
 
 #os.system('sudo  apt-get install build-essential -y')
 os.chdir('/tmp')
@@ -240,6 +240,8 @@ os.system('sudo ln -s /usr/local/lib64/libcrypto.so.3 /lib/x86_64-linux-gnu/libc
 #os.system('sudo apt-get purge linux-image-6.0.0-1015* -y')
 #os.system('sleep 10')
 #os.system('sudo reboot')
+
+os.system('sudo apt install -y openssh-server')
 
 ######Manual upgrade for Nessus Agent
 #os.chdir('/tmp')
