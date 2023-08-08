@@ -203,16 +203,18 @@ os.system('sudo apt autoremove -y')
 ######
 #Install Openssl 3.0.9
 
-#os.system('sudo  apt-get install build-essential -y')
-#os.chdir('/tmp')
+
+os.system('sudo  apt-get install build-essential -y')
+os.chdir('/tmp')
 #os.system('sudo wget https://www.openssl.org/source/openssl-3.0.9.tar.gz')
-#os.system('sudo tar zxvf /tmp/openssl-3.0.9.tar.gz')
-#os.chdir('/tmp/openssl-3.0.9')
-#os.system('sudo ./Configure')
-#os.system('sudo make')
-#os.system('sudo make install')
-#os.system('sudo rm -rf /lib/x86_64-linux-gnu/libcrypto.so.3')
-#os.system('sudo ln -s /usr/local/lib64/libcrypto.so.3 /lib/x86_64-linux-gnu/libcrypto.so.3')
+os.system('sudo wget https://www.openssl.org/source/openssl-3.1.2.tar.gz')
+os.system('sudo tar zxvf /tmp/openssl-3.1.2.tar.gz')
+os.chdir('/tmp/openssl-3.1.2')
+os.system('sudo ./Configure')
+os.system('sudo make')
+os.system('sudo make install')
+os.system('sudo rm -rf /lib/x86_64-linux-gnu/libcrypto.so.3')
+os.system('sudo ln -s /usr/local/lib64/libcrypto.so.3 /lib/x86_64-linux-gnu/libcrypto.so.3')
 #os.system('sudo reboot')
 
 #os.system('sudo systemctl restart syslog-ng')
