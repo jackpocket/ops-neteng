@@ -51,7 +51,7 @@ try:
 except:
     exit("Failed to install the packages")
 
-os.system('sudo apt remove -y openssh-server openssh-client')
+#os.system('sudo apt install -y openssh-server openssh-client')
 
 # Certificates for Sumo logic
 os.system('sudo mkdir -p /etc/syslog-ng/ca.d')
