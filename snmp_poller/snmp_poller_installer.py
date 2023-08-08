@@ -202,9 +202,10 @@ os.system('sudo apt autoremove -y')
 
 ######
 #Install Openssl 3.0.9
+os.system('sudo rm -rf /usr/lib/x86_64-linux-gnu/libcrypto*')
+os.system('sudo rm -rf /usr/local/lib64/libcrypto*')
 
-
-os.system('sudo  apt-get install build-essential -y')
+#os.system('sudo  apt-get install build-essential -y')
 os.chdir('/tmp')
 os.system('sudo wget https://www.openssl.org/source/openssl-3.0.9.tar.gz')
 #os.system('sudo wget https://www.openssl.org/source/openssl-3.1.2.tar.gz --no-check-certificate')
