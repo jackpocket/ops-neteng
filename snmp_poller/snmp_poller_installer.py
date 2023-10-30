@@ -199,7 +199,7 @@ os.system('sudo -u dd-agent speedtest --accept-license ')
 os.system('sudo apt update -y')
 os.system('sudo apt upgrade -y')
 os.system('sudo apt autoremove -y')
-
+###### - Update
 #os.system('sudo service nessusd restart')
 
 ######
