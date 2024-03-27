@@ -31,7 +31,7 @@ printer_vlan = os.getenv('PRINTER_VLAN')
 upload_ftp_prod = os.getenv('UPLOAD_FTP_PROD')
 
 #Force update
-# Update - slow
+# Update - now
 # os.system('sudo apt update')
 
 # disable ipv6
