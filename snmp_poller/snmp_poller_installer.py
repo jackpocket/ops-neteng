@@ -32,7 +32,7 @@ upload_ftp_prod = os.getenv('UPLOAD_FTP_PROD')
 
 #Force update
 # Update - now
-# os.system('sudo apt update')
+os.system('sudo apt update')
 
 # disable ipv6
 os.system('sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1')
