@@ -146,8 +146,11 @@ subprocess.run(f'sudo sed -i s/DD_WEBURL/{dd_weburl}/g /etc/datadog-agent/datado
 subprocess.run(f'sudo sed -i s/DD_API_KEY/{dd_api_key}/g /etc/datadog-agent/datadog.yaml', shell=True)
 subprocess.run(f'sudo sed -i s/DD_API_KEY/{dd_api_key}/g /etc/syslog-ng/conf.d/sophos.conf', shell=True)
 
-subprocess.run(f'sudo sed -i s/SUMO_DEPLOYMENT_REGION/{sumo_deployment_region}/g /etc/syslog-ng/conf.d/sumo.conf', shell=True)
-subprocess.run(f'sudo sed -i s/SITE/{site}/g /etc/syslog-ng/conf.d/sumo.conf', shell=True)
+#subprocess.run(f'sudo sed -i s/SUMO_DEPLOYMENT_REGION/{sumo_deployment_region}/g /etc/syslog-ng/conf.d/sumo.conf', shell=True)
+#subprocess.run(f'sudo sed -i s/SITE/{site}/g /etc/syslog-ng/conf.d/sumo.conf', shell=True)
+
+
+subprocess.run(f'sudo rm /etc/syslog-ng/conf.d/sumo.conf', shell=True)
 
 subprocess.run(f'sudo sed -i s/FIREWALL_IP/{firewall_ip}/g /etc/datadog-agent/conf.d/snmp.d/conf.yaml', shell=True)
 subprocess.run(f'sudo sed -i s/AUTH_KEY/{auth_key}/g /etc/datadog-agent/conf.d/snmp.d/conf.yaml', shell=True)
@@ -169,7 +172,8 @@ subprocess.run(f'sudo sed -i s/SNMP_USER/{snmp_user}/g /etc/datadog-agent/conf.d
 subprocess.run(f'sudo sed -i s/UPLOAD_FTP_PROD/{upload_ftp_prod}/g /etc/datadog-agent/conf.d/tcp_check.d/conf.yaml', shell=True)
 
 #Things with slashes must be treated differently
-subprocess.run(f'sudo sed -i s#SUMO_API_KEY#{sumo_api_key}#g /etc/syslog-ng/conf.d/sumo.conf', shell=True)
+#Removing Sumo logic
+#subprocess.run(f'sudo sed -i s#SUMO_API_KEY#{sumo_api_key}#g /etc/syslog-ng/conf.d/sumo.conf', shell=True)
 
 #Deal wth interface name
 #find primary interface. assume there is only one for right now
