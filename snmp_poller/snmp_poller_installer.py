@@ -16,8 +16,8 @@ dd_install_only = os.getenv('DD_INSTALL_ONLY')
 dd_weburl = os.getenv('DD_WEBURL')
 
 # Get SUMOLOGIC environment variables
-sumo_api_key = os.getenv('SUMO_API_KEY')
-sumo_deployment_region = os.getenv('SUMO_DEPLOYMENT_REGION')
+# sumo_api_key = os.getenv('SUMO_API_KEY')
+# sumo_deployment_region = os.getenv('SUMO_DEPLOYMENT_REGION')
 
 # Get JP environment variables
 site = os.getenv('SITE')
@@ -86,7 +86,7 @@ os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/tcp_check/co
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/snmp/conf.yaml /etc/datadog-agent/conf.d/snmp.d/')
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/agent/datadog.yaml /etc/datadog-agent/')
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/syslog-ng/sophos.conf /etc/syslog-ng/conf.d/')
-os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/syslog-ng/sumo.conf /etc/syslog-ng/conf.d/')
+#os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/conf/syslog-ng/sumo.conf /etc/syslog-ng/conf.d/')
 
 os.system('sudo cp /home/datadog/ops-neteng-public/snmp_poller/github_pull.py /opt/')
 os.system('sudo chmod +x /opt/github_pull.py')
