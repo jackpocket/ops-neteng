@@ -53,12 +53,12 @@ except:
 
 #os.system('sudo apt install -y openssh-server openssh-client')
 
-# Certificates for Sumo logic
-os.system('sudo mkdir -p /etc/syslog-ng/ca.d')
-os.chdir('/etc/syslog-ng/ca.d')
-os.system('sudo wget -O digicert_ca.der https://www.digicert.com/CACerts/DigiCertHighAssuranceEVRootCA.crt')
-os.system('sudo openssl x509 -inform der -in digicert_ca.der -out digicert_ca.crt')
-os.system('sudo ln -s digicert_ca.crt `openssl x509 -noout -hash -in digicert_ca.crt`.0')
+# # Certificates for Sumo logic
+# os.system('sudo mkdir -p /etc/syslog-ng/ca.d')
+# os.chdir('/etc/syslog-ng/ca.d')
+# os.system('sudo wget -O digicert_ca.der https://www.digicert.com/CACerts/DigiCertHighAssuranceEVRootCA.crt')
+# os.system('sudo openssl x509 -inform der -in digicert_ca.der -out digicert_ca.crt')
+# os.system('sudo ln -s digicert_ca.crt `openssl x509 -noout -hash -in digicert_ca.crt`.0')
 
 # Install Datadog Agent - hope this does not change
 #Old installer
