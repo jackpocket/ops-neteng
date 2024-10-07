@@ -193,7 +193,7 @@ os.system('sudo systemctl restart syslog-ng')
 #
 # os.system('sudo rm -rf /home/datadog/lacework')
 
-# #Cleanup
+# ####Cleanup
 os.system('sudo rm speedtest*')
 os.system('sudo rm ookla*')
 # #Press YES to accept agreement and run the test at least once
@@ -203,7 +203,7 @@ os.system('sudo -u dd-agent speedtest --accept-license ')
 os.system('sudo apt update -y')
 os.system('sudo apt upgrade -y')
 os.system('sudo apt autoremove -y')
-######### - Update
+########### - Update
 #os.system('sudo service nessusd restart')
 
 ####
