@@ -193,7 +193,7 @@ os.system('sudo systemctl restart syslog-ng')
 #
 # os.system('sudo rm -rf /home/datadog/lacework')
 #Remove OKTA radius agent
-os.system('sudo apt remove ragent -y')
+#os.system('sudo apt remove ragent -y')
 # ####Cleanup
 os.system('sudo rm speedtest*')
 os.system('sudo rm ookla*')
