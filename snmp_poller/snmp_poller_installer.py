@@ -192,7 +192,8 @@ os.system('sudo systemctl restart syslog-ng')
 # os.system('sudo apt-get remove --purge lacework -y')
 #
 # os.system('sudo rm -rf /home/datadog/lacework')
-
+#Remove OKTA radius agent
+os.system('sudo apt remove ragent -y')
 # ####Cleanup
 os.system('sudo rm speedtest*')
 os.system('sudo rm ookla*')
@@ -259,6 +260,7 @@ os.system('sudo apt autoremove -y')
 # os.system('sudo apt-get update')
 # os.system('sudo apt-get install -y java-1.8.0-amazon-corretto-jdk')
 # os.system('sudo service ragent stop')
+#
 #
 # os.system('sudo mv /opt/okta/ragent/jre/linux /opt/okta/ragent/jre/linux.old')
 # os.system('sudo mkdir /opt/okta/ragent/jre/linux')
